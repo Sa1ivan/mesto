@@ -8,5 +8,6 @@
   display: none;
   flex-direction: column;
   box-sizing: border-box;
+  background: rgba(0,0,0,0.5);
 }
 

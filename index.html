@@ -10,7 +10,6 @@
     <div class="page__container">
       <header class="header">
         <img class="header__logo" src="./images/logo.svg" alt="Логотип сайта" />
-        <div class="header__line"></div>
       </header>
     </div>
     <main class="content">
@@ -64,7 +63,7 @@
           <div class="place">
             <img class="place__image" src="./images/place__image_1.jpg" alt="Фото Карачаево-Черкесской Республики"></img>
             <div class="place__about">
-                <h2 class="place__info">Карачаево-Черкесия</h2>
+                <h2 class="place__info">Карачаево-Черкесскаая Республика</h2>
                 <button class="place__like-btn opacity" type="button"></button>
             </div>
           </div>
@@ -76,12 +75,13 @@
         </h2>
     </footer>
     <section class="popup">
+      <div class="popup__overlay"></div>
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" class="popup__text popup__text_type_active">
-        <input type="text" class="popup__text popup__text_type_active">
-        <button class="popup__submit-btn popup__submit-btn_active opacity">Сохранить</button>
-        <button class="popup__close-btn popup__close-btn_active opacity"></button>
+        <input type="text" placeholder = "" class="popup__username-text">
+        <input type="text" placeholder = "" class="popup__text">
+        <button class="popup__submit-btn opacity">Сохранить</button>
+        <button class="popup__close-btn opacity"></button>
       </div>
     </section>
     <script src="script.js"></script>

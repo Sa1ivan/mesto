@@ -2,16 +2,20 @@
   margin: 0 0 0 30px;
   padding: 0;
   max-width: 336px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: 39px 18px;
   align-items: center;
+  align-content: center;
+  row-gap: 16px;
 }
 
 @media screen and (max-width: 768px) {
-    .profile__about{
-        max-width: 282px;
-        margin: 26px auto 0;
-        justify-content: center;
-    }
+  .profile__about {
+    max-width: 282px;
+    grid-template-rows: 26px 17px;
+    margin: 26px auto 0;
+    box-sizing: border-box;
+    row-gap: 14;
+  }
 }
