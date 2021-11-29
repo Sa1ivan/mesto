@@ -6,20 +6,22 @@ let popupName = document.querySelector('.popup__username-text');
 const submitBtn = document.querySelector('.popup__submit-btn');
 let userInfo = document.querySelector('.profile__user-info');
 let popupInfo = document.querySelector('.popup__text');
-const overlay = document.querySelector('.popup__overlay');
+const pageHidden = document.querySelector('.page');
 
-popupName.value= 'Жак-Ив Кусто';
-popupInfo.value = 'Исследователь океана';
+popupName.value = userName.textContent;
+popupInfo.value = userInfo.textContent;
 
 
 function openPopup (){
     popup.classList.add('popup_active');
+    pageHidden.classList.add('hidden');
     popupName.value;
     popupInfo.value;
 }
 
 function closePopup (){
     popup.classList.remove('popup_active');
+    pageHidden.classList.remove('hidden');
 }
 
 
@@ -31,4 +33,3 @@ popupOpenBtn.addEventListener('click', openPopup);
 popupCloseBtn.addEventListener('click', closePopup);
 submitBtn.addEventListener('click', formSubmitHandler);
 submitBtn.addEventListener('click', closePopup);
-overlay.addEventListener('click', closePopup);

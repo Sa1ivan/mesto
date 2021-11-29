@@ -1,7 +1,6 @@
 .place__about {
   max-width: 246px;
-  height: 79px;
-  margin: 0 auto;
+  margin: 25px auto 0;
   padding: 0;
   display: flex;
   justify-content: space-between;

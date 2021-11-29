@@ -2,7 +2,7 @@
 @import url(../vendor/fonts/Inter/inter.css);
 @import url(../blocks/opacity/opacity.css);
 @import url(../blocks/page/page.css);
-@import url(../blocks/overlay/overlay.css);
+@import url(../blocks/hidden/hidden.css);
 @import url(../blocks/page/__container/page__container.css);
 @import url(../blocks/content/content.css);
 @import url(../blocks/header/header.css);
@@ -29,7 +29,6 @@
 @import url(../blocks/popup/__submit-btn/popup__submit-btn.css);
 @import url(../blocks/popup/__close-btn/popup__close-btn.css);
 @import url(../blocks/popup/_active/popup_active.css);
-@import url(../blocks/popup/__overlay/popup__overlay.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__username-text/popup__username-text.css);
 @import url(../blocks/place/__like-btn/_active/place__like-btn_active.css);
