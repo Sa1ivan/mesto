@@ -4,18 +4,19 @@
   max-width: 336px;
   display: grid;
   grid-template-columns: max-content 1fr;
-  grid-template-rows: 39px 18px;
+  grid-template-rows: min-content;
   align-items: center;
   align-content: center;
+  column-gap: 18px;
   row-gap: 16px;
+  box-sizing: border-box;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 680px) {
   .profile__about {
-    max-width: 282px;
-    grid-template-rows: 26px 17px;
+    column-gap: 10px;
+    row-gap: 14px;
     margin: 26px auto 0;
-    box-sizing: border-box;
-    row-gap: 14;
   }
 }
+

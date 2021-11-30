@@ -12,3 +12,7 @@
   box-sizing: border-box;
   cursor: pointer;
 }
+
+.place__like-btn:hover {
+  opacity: .5;
+}

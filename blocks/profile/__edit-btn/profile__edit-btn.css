@@ -9,15 +9,12 @@
   border: 1px solid white;
   cursor: pointer;
   align-self: center;
-  margin: 0 0 0 18px;
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 440px) {
   .profile__edit-btn {
     width: 18px;
     height: 18px;
-    justify-self: start;
-    margin: 0;
   }
 }

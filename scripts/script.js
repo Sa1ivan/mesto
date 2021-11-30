@@ -1,35 +1,34 @@
 const popupOpenBtn = document.querySelector('.profile__edit-btn');
 const popup = document.querySelector('.popup');
 const popupCloseBtn = document.querySelector('.popup__close-btn');
-let userName = document.querySelector('.profile__username');
-let popupName = document.querySelector('.popup__username-text'); 
-const submitBtn = document.querySelector('.popup__submit-btn');
+let userName = document.querySelector('.profile__user-name');
+let popupName = document.querySelector('.popup__input-text_type_user-name'); 
 let userInfo = document.querySelector('.profile__user-info');
-let popupInfo = document.querySelector('.popup__text');
-const pageHidden = document.querySelector('.page');
+let popupInfo = document.querySelector('.popup__input-text_type_user-info');
+const popupform = document.querySelector('#popup-form');
 
-popupName.value = userName.textContent;
-popupInfo.value = userInfo.textContent;
+
+
 
 
 function openPopup (){
     popup.classList.add('popup_active');
-    pageHidden.classList.add('hidden');
-    popupName.value;
-    popupInfo.value;
+    popupName.value = userName.textContent;
+    popupInfo.value = userInfo.textContent;
 }
 
-function closePopup (){
+function closePopup(){
     popup.classList.remove('popup_active');
-    pageHidden.classList.remove('hidden');
 }
 
 
-function formSubmitHandler(){
+
+function formSubmitHandler(evt){
     userName.textContent = popupName.value;
     userInfo.textContent = popupInfo.value;
+    popup.classList.remove('popup_active');
+    evt.preventDefault();
 }
 popupOpenBtn.addEventListener('click', openPopup);
 popupCloseBtn.addEventListener('click', closePopup);
-submitBtn.addEventListener('click', formSubmitHandler);
-submitBtn.addEventListener('click', closePopup);
+popupform.addEventListener('submit', formSubmitHandler);
