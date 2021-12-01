@@ -26,7 +26,7 @@ function closePopup(){
 function formSubmitHandler(evt){
     userName.textContent = popupName.value;
     userInfo.textContent = popupInfo.value;
-    popup.classList.remove('popup_active');
+    closePopup();
     evt.preventDefault();
 }
 popupOpenBtn.addEventListener('click', openPopup);

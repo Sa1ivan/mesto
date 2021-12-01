@@ -16,6 +16,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 1;
+  transition: opacity 0.3s linear;
+}
+
+.popup__submit-btn:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s linear;
 }
 
 @media screen and (max-width: 600px) {
