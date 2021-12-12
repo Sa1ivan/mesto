@@ -25,72 +25,6 @@
         <button type="button" class="profile__add-btn"></button>
       </section>
       <section class="places">
-        <div class="place">
-          <img
-            class="place__image"
-            src="./images/place__image_1.jpg"
-            alt="Фото Карачаевска"
-          />
-          <div class="place__about">
-            <h2 class="place__info">Карачаевска</h2>
-            <button type="button" class="place__like-btn"></button>
-          </div>
-        </div>
-        <div class="place">
-          <img
-            class="place__image"
-            src="./images/place__image_2.jpg"
-            alt="Фото Горы Эльбрус"
-          />
-          <div class="place__about">
-            <h2 class="place__info">Горы Эльбрус</h2>
-            <button type="button" class="place__like-btn"></button>
-          </div>
-        </div>
-        <div class="place">
-          <img
-            class="place__image"
-            src="./images/place__image_3.jpg"
-            alt="Фото Домбая"
-          />
-          <div class="place__about">
-            <h2 class="place__info">Домбая</h2>
-            <button type="button" class="place__like-btn"></button>
-          </div>
-        </div>
-        <div class="place">
-          <img
-            class="place__image"
-            src="./images/place__image_2.jpg"
-            alt="Фото Горы Эльбрус"
-          />
-          <div class="place__about">
-            <h2 class="place__info">Горы Эльбрус</h2>
-            <button type="button" class="place__like-btn"></button>
-          </div>
-        </div>
-        <div class="place">
-          <img
-            class="place__image"
-            src="./images/place__image_3.jpg"
-            alt="Фото Домбая"
-          />
-          <div class="place__about">
-            <h2 class="place__info">Домбая</h2>
-            <button type="button" class="place__like-btn"></button>
-          </div>
-        </div>
-        <div class="place">
-          <img
-            class="place__image"
-            src="./images/place__image_1.jpg"
-            alt="Фото Карачаево-Черкесской Республики"
-          />
-          <div class="place__about">
-            <h2 class="place__info">Карачаево-Черкесскаая Республика</h2>
-            <button type="button" class="place__like-btn"></button>
-          </div>
-        </div>
       </section>
     </main>
     <footer class="footer">
@@ -112,14 +46,42 @@
             placeholder=""
             class="popup__input-text popup__input-text_type_user-info"
           />
-          <button type="submit" class="popup__submit-btn">
-            Сохранить
-          </button>
+          <button type="submit" class="popup__submit-btn">Сохранить</button>
         </form>
-
         <button type="button" class="popup__close-btn"></button>
       </div>
     </div>
+    <div class="popup-add">
+      <div class="popup-add__container">
+        <h2 class="popup-add__title">Новое место</h2>
+        <form name="form-popup-add" id="popup-add-form" method="get" action="#">
+          <input
+            type="text"
+            name="place-name"
+            placeholder="Название"
+            class="popup-add__input-text popup-add__input-text_type_place-name"
+          />
+          <input
+            type="text"
+            name="place-link"
+            placeholder="Ссылка на картинку"
+            class="popup-add__input-text popup-add__input-text_type_place-link"
+          />
+          <button type="submit" class="popup-add__submit-btn">Создать</button>
+        </form>
+        <button type="button" class="popup-add__close-btn"></button>
+      </div>
+    </div>
+    <template id="place">
+      <div class="place">
+        <img class="place__image" src="" alt="Фото Горы Эльбрус" />
+        <button type="button" class="place__delete-btn"></button>
+        <div class="place__about">
+          <h2 class="place__info"></h2>
+          <button type="button" class="place__like-btn"></button>
+        </div>
+      </div>
+    </template>
     <script src="./scripts/script.js"></script>
   </body>
 </html>

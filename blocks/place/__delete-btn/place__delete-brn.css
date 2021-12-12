@@ -1,0 +1,17 @@
+.place__delete-btn{
+    background-image: url(../../../images/place__delete-btn.svg);
+    width: 18px;
+    height: 19px;
+    position: absolute;
+    background-color: #11ffee00;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
+    top: 20px;
+    right: 20px;
+    margin: 0;
+    padding: 0;
+}
