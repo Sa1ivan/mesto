@@ -87,19 +87,20 @@ let popupAddPlaceName = document.querySelector(
 let popupAddPlaceLink = document.querySelector(
   ".popup-add__input-text_type_place-link"
 );
-const addPlaceBtn = document.querySelector('.popup-add__submit-btn');
+const addPlaceBtn = document.querySelector(".popup-add__submit-btn");
 
 function newPlaceItemForm(evt) {
-  const placeName = document.querySelector(".place__info");
-  const placeLink = document.querySelector(".place__image");
-  const placeItem = document.querySelector(".place");
+  /*   const placeName = document.querySelector(".place__info");
+  const placeLink = document.querySelector(".place__image"); */
+  /*    const placeItem = document.querySelector(".place"); */
+  evt.preventDefault();
   const placeBlock = document.querySelector("#place");
   const places = document.querySelector(".places");
-  const newItem = placeBlock.content.cloneNode(true);
-  newItem.placeItem.textContent = popupAddPlaceName.value;
-  newItem.placeLink.src = popupAddPlaceLink.value;
+  const newItem = placeBlock.content.querySelector(".place").cloneNode(true);
+  newItem.document.querySelector(".place__info").textContent =
+    popupAddPlaceName.value;
+  newItem.document.querySelector(".place__image").src = popupAddPlaceLink.value;
   places.append(newItem);
   closePopupAdd();
-  evt.preventDefault();
 }
 addPlaceBtn.addEventListener("submit", newPlaceItemForm);
