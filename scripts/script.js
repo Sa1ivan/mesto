@@ -1,3 +1,4 @@
+//Popup-Edit
 const popupOpenBtn = document.querySelector(".profile__edit-btn");
 const popup = document.querySelector(".popup");
 const popupCloseBtn = document.querySelector(".popup__close-btn");
@@ -6,16 +7,28 @@ let popupName = document.querySelector(".popup__input-text_type_user-name");
 let userInfo = document.querySelector(".profile__user-info");
 let popupInfo = document.querySelector(".popup__input-text_type_user-info");
 const popupform = document.querySelector("#popup-form");
-let popupAddPlaceName = document.querySelector(
-  ".popup-add__input-text_type_place-name"
-);
-let popupAddPlaceLink = document.querySelector(
-  ".popup-add__input-text_type_place-link"
-);
-const openPopupAdd = document.querySelector(".popup-add");
-const likeBtn = document.querySelectorAll(".place__like-btn_active");
 
-const popupAddForm = document.querySelector("#popup-add-form");
+function openPopup() {
+  popup.classList.add("popup_active");
+  popupName.value = userName.textContent;
+  popupInfo.value = userInfo.textContent;
+}
+
+function closePopup() {
+  popup.classList.remove("popup_active");
+}
+
+function formSubmitHandler(evt) {
+  userName.textContent = popupName.value;
+  userInfo.textContent = popupInfo.value;
+  closePopup();
+  evt.preventDefault();
+}
+popupOpenBtn.addEventListener("click", openPopup);
+popupCloseBtn.addEventListener("click", closePopup);
+popupform.addEventListener("submit", formSubmitHandler);
+
+//Popup-Add
 const initialCards = [
   {
     name: "Архыз",
@@ -42,8 +55,7 @@ const initialCards = [
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
   },
 ];
-
-
+// Прогрузка карточек из массива
 for (let i = 0; i < initialCards.length; i++) {
   const placeBlock = document.querySelector("#place");
   const places = document.querySelector(".places");
@@ -53,62 +65,41 @@ for (let i = 0; i < initialCards.length; i++) {
   places.append(placeItem);
 }
 
-const closePopupAdd = document
-  .querySelector(".popup-add__close-btn")
-  .addEventListener("click", function () {
-    openPopupAdd.classList.remove("popup-add_active");
-  });
-const addBtn = document
-  .querySelector(".profile__add-btn")
-  .addEventListener("click", function () {
-    openPopupAdd.classList.add("popup-add_active");
-    //popupAddForm.addEventListener('submit', evt => {
-    //const placeBlock = document.querySelector("#place");
-    //  const newPlaceItem = placeBlock.content.cloneNode(true).querySelector('.place');
-    //  newPlaceItem. = popupAddPlaceName.value;
-    //});
-  });
+// Открытие Модального окна добавления новой карточки
+const popupAdd = document.querySelector(".popup-add");
+const openPopupAddBtn = document.querySelector(".profile__add-btn");
+function openPopupAdd() {
+  popupAdd.classList.add("popup-add_active");
+}
+openPopupAddBtn.addEventListener("click", openPopupAdd);
 
-function formSubmitNewPlace(evt) {
+// Закритие модального окна добавление карточек
+const closePopupAddBtn = document.querySelector(".popup-add__close-btn");
+function closePopupAdd() {
+  popupAdd.classList.remove("popup-add_active");
+}
+closePopupAddBtn.addEventListener("click", closePopupAdd);
+
+// Добавление новой карточки
+let popupAddPlaceName = document.querySelector(
+  ".popup-add__input-text_type_place-name"
+);
+let popupAddPlaceLink = document.querySelector(
+  ".popup-add__input-text_type_place-link"
+);
+const addPlaceBtn = document.querySelector('.popup-add__submit-btn');
+
+function newPlaceItemForm(evt) {
+  const placeName = document.querySelector(".place__info");
+  const placeLink = document.querySelector(".place__image");
+  const placeItem = document.querySelector(".place");
   const placeBlock = document.querySelector("#place");
-  const newPlaceItem = placeBlock.content.cloneNode(true).querySelector('.place');
-  newPlaceItem.document.querySelector('#place-name').textContent = popupAddPlaceName.value;
-  newPlaceItem.document.querySelector('#place-link').textContent = popupAddPlaceLink.value;
-  addNewPlace();
+  const places = document.querySelector(".places");
+  const newItem = placeBlock.content.cloneNode(true);
+  newItem.placeItem.textContent = popupAddPlaceName.value;
+  newItem.placeLink.src = popupAddPlaceLink.value;
+  places.append(newItem);
   closePopupAdd();
   evt.preventDefault();
 }
-
-popupAddForm.addEventListener("submit", formSubmitNewPlace);
-function addNewPlace(){
-  for (let i = 0; i < initialCards.length; i++) {
-    const placeBlock = document.querySelector("#place");
-    const places = document.querySelector(".places");
-    const placeItem = placeBlock.content.querySelector(".place").cloneNode(true);
-    placeItem.querySelector(".place__image").src = initialCards[i].link;
-    placeItem.querySelector(".place__info").textContent = initialCards[i].name;
-    places.append(placeItem);
-  }
-}
-
-
-
-function openPopup() {
-  popup.classList.add("popup_active");
-  popupName.value = userName.textContent;
-  popupInfo.value = userInfo.textContent;
-}
-
-function closePopup() {
-  popup.classList.remove("popup_active");
-}
-
-function formSubmitHandler(evt) {
-  userName.textContent = popupName.value;
-  userInfo.textContent = popupInfo.value;
-  closePopup();
-  evt.preventDefault();
-}
-popupOpenBtn.addEventListener("click", openPopup);
-popupCloseBtn.addEventListener("click", closePopup);
-popupform.addEventListener("submit", formSubmitHandler);
+addPlaceBtn.addEventListener("submit", newPlaceItemForm);
