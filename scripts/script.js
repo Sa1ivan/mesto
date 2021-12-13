@@ -62,13 +62,6 @@ for (let i = 0; i < initialCards.length; i++) {
   const placeItem = placeBlock.content.querySelector(".place").cloneNode(true);
   placeItem.querySelector(".place__image").src = initialCards[i].link;
   placeItem.querySelector(".place__info").textContent = initialCards[i].name;
-  const likeItem = document.querySelectorAll(".place__like-btn");
-  const newLikeItem = Array.from(likeItem);
-  newLikeItem.forEach((el) => {
-    el.addEventListener("click", (evt) => {
-      evt.target.classList.toggle("place_like-btn_active");
-    });
-  });
   places.append(placeItem);
 }
 
@@ -107,13 +100,6 @@ function newPlaceItemForm(evt) {
   closePopupAdd();
   popupAddPlaceName.value = "";
   popupAddPlaceLink.value = "";
-  const likeItem = document.querySelectorAll(".place__like-btn");
-  const newLikeItem = Array.from(likeItem);
-  newLikeItem.forEach((el) => {
-    el.addEventListener("click", (evt) => {
-      evt.target.classList.toggle("place_like-btn_active");
-    });
-  });
 }
 const popupAddForm = document.querySelector("#popup-add-form");
 popupAddForm.addEventListener("submit", newPlaceItemForm);
@@ -127,3 +113,7 @@ places.addEventListener("click", (evt) => {
     evt.currentTarget.closest(".place").remove();
   });
 });
+
+places.querySelector('.place__like-btn').addEventListener('click', (evt) => {
+  evt.target.classList.toggle('place__like-btn_active');
+})
