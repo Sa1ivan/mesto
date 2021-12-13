@@ -18,7 +18,7 @@
 @import url(../blocks/place/__image/place__image.css);
 @import url(../blocks/place/__about/place__about.css);
 @import url(../blocks/place/__info/place__info.css);
-@import url(../blocks/place/__delete-btn/place__delete-brn.css);
+@import url(../blocks/place/__delete-btn/place__delete-btn.css);
 @import url(../blocks/place/__like-btn/place__like-btn.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
@@ -41,3 +41,9 @@
 @import url(../blocks/popup-add/__input-text/_type/popup-add__input-text_type_place-link.css);
 @import url(../blocks/popup-add/__input-text/_type/popup-add__input-text_type_place-name.css);
 @import url(../blocks/popup-add/__input-text/popup-add__input-text.css);
+@import url(../blocks/popup-full-pic/popup-full-pic.css);
+@import url(../blocks/popup-full-pic/__container/popup-full-pic__container.css);
+@import url(../blocks/popup-full-pic/__image/popup-full-pic__image.css);
+@import url(../blocks/popup-full-pic/__title/popup-full-pic__title.css);
+@import url(../blocks/popup-full-pic/__close-btn/popup-full-pic__close-btn.css);
+@import url(../blocks/popup-full-pic/_active/popup-full-pic_active.css);

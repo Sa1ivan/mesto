@@ -62,6 +62,20 @@ for (let i = 0; i < initialCards.length; i++) {
   const placeItem = placeBlock.content.querySelector(".place").cloneNode(true);
   placeItem.querySelector(".place__image").src = initialCards[i].link;
   placeItem.querySelector(".place__info").textContent = initialCards[i].name;
+  placeItem
+    .querySelector(".place__like-btn")
+    .addEventListener("click", (evt) => {
+      evt.target.classList.toggle("place__like-btn_active");
+    });
+  placeItem.querySelector(".place__image").addEventListener("click", (evt) => {
+    evt.preventDefault();
+    const openPopupImg = document.querySelector(".popup-full-pic");
+    const popupImg = document.querySelector('.popup-full-pic__image');
+    const popupInfo = document.querySelector('.popup-full-pic__title');
+    openPopupImg.classList.add("popup-full-pic_active");
+    popupImg.src = evt.target.src;
+    popupInfo.textContent = evt.target.parentElement.querySelector(".place__info").textContent;
+  });
   places.append(placeItem);
 }
 
@@ -96,6 +110,19 @@ function newPlaceItemForm(evt) {
   const newItem = placeBlock.content.querySelector(".place").cloneNode(true);
   newItem.querySelector(".place__info").textContent = popupAddPlaceName.value;
   newItem.querySelector(".place__image").src = popupAddPlaceLink.value;
+  newItem.querySelector(".place__like-btn").addEventListener("click", (evt) => {
+    evt.target.classList.toggle("place__like-btn_active");
+  });
+  newItem.querySelector(".place__image").addEventListener("click", (evt) => {
+    evt.preventDefault();
+    const openPopupImg = document.querySelector(".popup-full-pic");
+    openPopupImg.classList.add("popup-full-pic_active");
+    const popupImg = document.querySelector('.popup-full-pic__image');
+    const popupInfo = document.querySelector('.popup-full-pic__title');
+    openPopupImg.classList.add("popup-full-pic_active");
+    popupImg.src = evt.target.src;
+    popupInfo.textContent = evt.target.parentElement.querySelector(".place__info").textContent;
+  });
   places.prepend(newItem);
   closePopupAdd();
   popupAddPlaceName.value = "";
@@ -114,6 +141,10 @@ places.addEventListener("click", (evt) => {
   });
 });
 
-places.querySelector('.place__like-btn').addEventListener('click', (evt) => {
-  evt.target.classList.toggle('place__like-btn_active');
-})
+//Закрытие модального окна просмотра картинок
+const popupFullPic = document.querySelector('.popup-full-pic');
+const closePopupFullPicBtn = document.querySelector(".popup-full-pic__close-btn");
+function closePopupFullPic() {
+  popupFullPic.classList.remove("popup-full-pic_active");
+}
+closePopupFullPicBtn.addEventListener("click", closePopupFullPic);

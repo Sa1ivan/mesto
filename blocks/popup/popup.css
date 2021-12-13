@@ -5,10 +5,13 @@
   width: 100vw;
   height: 100vh;
   color: black;
-  display: none;
+  display: flex;
   flex-direction: column;
   box-sizing: border-box;
   background: rgba(0,0,0,0.5);
   align-items: center;
   justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visability 0.3s;
 }
