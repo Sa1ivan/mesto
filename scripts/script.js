@@ -62,6 +62,13 @@ for (let i = 0; i < initialCards.length; i++) {
   const placeItem = placeBlock.content.querySelector(".place").cloneNode(true);
   placeItem.querySelector(".place__image").src = initialCards[i].link;
   placeItem.querySelector(".place__info").textContent = initialCards[i].name;
+  const likeItem = document.querySelectorAll(".place__like-btn");
+  const newLikeItem = Array.from(likeItem);
+  newLikeItem.forEach((el) => {
+    el.addEventListener("click", (evt) => {
+      evt.target.classList.toggle("place_like-btn_active");
+    });
+  });
   places.append(placeItem);
 }
 
@@ -90,17 +97,33 @@ let popupAddPlaceLink = document.querySelector(
 const addPlaceBtn = document.querySelector(".popup-add__submit-btn");
 
 function newPlaceItemForm(evt) {
-  /*   const placeName = document.querySelector(".place__info");
-  const placeLink = document.querySelector(".place__image"); */
-  /*    const placeItem = document.querySelector(".place"); */
   evt.preventDefault();
   const placeBlock = document.querySelector("#place");
   const places = document.querySelector(".places");
   const newItem = placeBlock.content.querySelector(".place").cloneNode(true);
-  newItem.document.querySelector(".place__info").textContent =
-    popupAddPlaceName.value;
-  newItem.document.querySelector(".place__image").src = popupAddPlaceLink.value;
-  places.append(newItem);
+  newItem.querySelector(".place__info").textContent = popupAddPlaceName.value;
+  newItem.querySelector(".place__image").src = popupAddPlaceLink.value;
+  places.prepend(newItem);
   closePopupAdd();
+  popupAddPlaceName.value = "";
+  popupAddPlaceLink.value = "";
+  const likeItem = document.querySelectorAll(".place__like-btn");
+  const newLikeItem = Array.from(likeItem);
+  newLikeItem.forEach((el) => {
+    el.addEventListener("click", (evt) => {
+      evt.target.classList.toggle("place_like-btn_active");
+    });
+  });
 }
-addPlaceBtn.addEventListener("submit", newPlaceItemForm);
+const popupAddForm = document.querySelector("#popup-add-form");
+popupAddForm.addEventListener("submit", newPlaceItemForm);
+
+// Удаление карточек
+const places = document.querySelector(".places");
+places.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  const deleteBtn = document.querySelector(".place__delete-btn");
+  deleteBtn.addEventListener("click", (evt) => {
+    evt.currentTarget.closest(".place").remove();
+  });
+});
