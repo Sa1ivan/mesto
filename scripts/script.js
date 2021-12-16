@@ -1,34 +1,20 @@
-//Popup-Edit
-const popupOpenBtn = document.querySelector(".profile__edit-btn");
-const popup = document.querySelector(".popup");
-const popupCloseBtn = document.querySelector(".popup__close-btn");
-let userName = document.querySelector(".profile__user-name");
-let popupName = document.querySelector(".popup__input-text_type_user-name");
-let userInfo = document.querySelector(".profile__user-info");
-let popupInfo = document.querySelector(".popup__input-text_type_user-info");
-const popupform = document.querySelector("#popup-form");
+//Общее
+const popupCloseBtn = document.querySelectorAll(".popup__close-btn");
+const likeBtn = document.querySelectorAll('.place__like-btn');
+const allPopups = document.querySelector('.popup');
+const placeBlock = document.querySelector("#place");
+const places = document.querySelector(".places");
+const cardItem = placeBlock.content.querySelector(".place").cloneNode(true);
+//Popup_Profile
+const popupProfileBtn = document.querySelector(".profile__edit-btn");
+const popupProfile = document.querySelector(".popup_type_profile");
+const popupProfileUserName = document.querySelector(".profile__user-name");
+const popupProfileUserInfo = document.querySelector(".profile__user-info");
+const popupProfileName = document.querySelector(".popup__input-text_type_user-name");
+const popupProfileInfo = document.querySelector(".popup__input-text_type_user-info");
+const popupProfileForm = document.querySelector("#popup-profile-form");
 
-function openPopup() {
-  popup.classList.add("popup_active");
-  popupName.value = userName.textContent;
-  popupInfo.value = userInfo.textContent;
-}
-
-function closePopup() {
-  popup.classList.remove("popup_active");
-}
-
-function formSubmitHandler(evt) {
-  userName.textContent = popupName.value;
-  userInfo.textContent = popupInfo.value;
-  closePopup();
-  evt.preventDefault();
-}
-popupOpenBtn.addEventListener("click", openPopup);
-popupCloseBtn.addEventListener("click", closePopup);
-popupform.addEventListener("submit", formSubmitHandler);
-
-//Popup-Add
+//Popup_Add-Card
 const initialCards = [
   {
     name: "Архыз",
@@ -55,11 +41,66 @@ const initialCards = [
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
   },
 ];
+const popupAddCardBtn = document.querySelector('.profile__add-btn');
+const popupAddCard = document.querySelector(".popup_type_add-card");
+const popupAddCardName = document.querySelector(".popup__input-text_type_place-name");
+const popupAddCardLink = document.querySelector(".popup__input-text_type_place-link");
+const popupAddCardForm = document.querySelector('popup-add-form');
+
+
+//Popup_Picture
+const popupPictureBtn = document.querySelectorAll(".popup__picture");
+const popupPictureHeading = document.querySelectorAll('.popup__heading');
+
+
+//Функция открытия попапов
+ function openPopup(popup) {
+  popup.classList.add('popup_active');
+}
+popupProfileBtn.addEventListener("click", () =>{
+  openPopup(popupProfile);
+  popupProfileName.value = popupProfileUserName.textContent;
+  popupProfileInfo.value = popupProfileUserInfo.textContent;
+});
+popupAddCardBtn.addEventListener("click", () =>{
+  openPopup(popupAddCard);
+});
+//popupPictureBtn.addEventListener("click", openPopup);
+
+
+//Функция закрытия попапов
+function closePopup(popup) {
+  popup.classList.remove("popup_active");
+}
+
+  popupCloseBtn.forEach(element => {
+    element.addEventListener('click', ()=>{
+      const popupClosest = element.closest('popup_active');
+        closePopup(popupClosest);
+    })
+  });
+
+//Функция редактирования профиля
+function handlerProfileSubmit(evt) {
+  popupProfileUserName.textContent = popupProfileName.value;
+  popupProfileUserInfo.textContent = popupProfileInfo.value;
+  closePopup();
+  evt.preventDefault();
+}
+popupProfileForm.addEventListener("submit", handlerProfileSubmit);
+
+//Popup-Add
+
 // Прогрузка карточек из массива
-for (let i = 0; i < initialCards.length; i++) {
-  const placeBlock = document.querySelector("#place");
-  const places = document.querySelector(".places");
-  const placeItem = placeBlock.content.querySelector(".place").cloneNode(true);
+
+
+
+
+
+
+/* for (let i = 0; i < initialCards.length; i++) {
+
+
   placeItem.querySelector(".place__image").src = initialCards[i].link;
   placeItem.querySelector(".place__info").textContent = initialCards[i].name;
   placeItem
@@ -148,3 +189,4 @@ function closePopupFullPic() {
   popupFullPic.classList.remove("popup-full-pic_active");
 }
 closePopupFullPicBtn.addEventListener("click", closePopupFullPic);
+ */

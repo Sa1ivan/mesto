@@ -33,7 +33,7 @@
     <div class="popup popup_type_profile">
       <div class="popup__container">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form name="form-popup" id="popup-form" method="get" action="#">
+        <form name="profile-form-popup" id="popup-profile-form" method="get" action="#">
           <input
             type="text"
             name="user-name"
@@ -51,10 +51,10 @@
         <button type="button" class="popup__close-btn"></button>
       </div>
     </div>
-    <div class="popup popup_type_add-card popup_active">
+    <div class="popup popup_type_add-card">
       <div class="popup__container">
         <h2 class="popup__title">Новое место</h2>
-        <form name="form-popup" id="popup-form" method="get" action="#">
+        <form name="add-form-popup" id="popup-add-form" method="get" action="#">
           <input
             type="text"
             name="place-name"
@@ -72,11 +72,11 @@
         <button type="button" class="popup__close-btn"></button>
       </div>
     </div>
-    <div class="popup popup_type_picture ">
-      <div class="popup__container popup__container_type_picture">
-        <img class="popup__picture" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg" />
-        <h2 class="popup__title_type_picture popup__title">уцукпупукпйкуп</h2>
-        <button type="button" class="popup__close-btn"></button>
+    <div class="popup popup_type_picture">
+      <div class="popup__overlay">
+        <img class="popup__picture" src="#" />
+        <h2 class="popup__heading"></h2>
+        <button type="button" class="popup__close-btn popup__close-btn_type_picture"></button>
       </div>
     </div>
     <template id="place">

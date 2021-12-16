@@ -34,9 +34,10 @@
 @import url(../blocks/popup/__input-text/_type/popup__input-text_type_user-name.css);
 @import url(../blocks/popup/__input-text/_type/popup__input-text_type_place-link.css);
 @import url(../blocks/popup/__input-text/_type/popup__input-text_type_place-name.css);
-@import url(../blocks/popup/__container/_type/popup__container_type_picture.css);
+@import url(../blocks/popup/__overlay/popup__overlay.css);
 @import url(../blocks/popup/__picture/popup__picture.css);
-@import url(../blocks/popup/__title/_type/popup__title_type_picture.css);
+@import url(../blocks/popup/__heading/popup__heading.css);
+@import url(../blocks/popup/__close-btn/_type/popup__close-btn_type_picture.css);
 @import url(../blocks/popup/_type/popup_type_add-card.css);
 @import url(../blocks/popup/_type/popup_type_picture.css);
 @import url(../blocks/popup/_type/popup_type_profile.css);
