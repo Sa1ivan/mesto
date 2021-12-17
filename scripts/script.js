@@ -126,11 +126,15 @@ function createCard(element){
   return cardData;
 }
 
-popupAddCardForm.addEventListener('submit', createCard);
+popupAddCardForm.addEventListener('submit', createNewCard);
 
 function downloadCard (element){
     const card = createCard(element);
     places.append(card);
+}
+function addNewCard (element){
+  const card = createCard(element);
+  places.prepend(card);
 }
 
 function createNewCard(evt){
@@ -139,104 +143,10 @@ function createNewCard(evt){
     name: popupAddCardName.value,
     link: popupAddCardLink.value
   };
-  console.log(popupAddCardName.value)
-  console.log(newCard.link)
-  downloadCard(newCard)
+  addNewCard(newCard)
   closePopup(popupAddCard);
 }
-downloadCard();
 
-// Прогрузка карточек из массива
-
-/* for (let i = 0; i < initialCards.length; i++) {
-
-
-  placeItem.querySelector(".place__image").src = initialCards[i].link;
-  placeItem.querySelector(".place__info").textContent = initialCards[i].name;
-  placeItem
-    .querySelector(".place__like-btn")
-    .addEventListener("click", (evt) => {
-      evt.target.classList.toggle("place__like-btn_active");
-    });
-  placeItem.querySelector(".place__image").addEventListener("click", (evt) => {
-    evt.preventDefault();
-    const openPopupImg = document.querySelector(".popup-full-pic");
-    const popupImg = document.querySelector('.popup-full-pic__image');
-    const popupInfo = document.querySelector('.popup-full-pic__title');
-    openPopupImg.classList.add("popup-full-pic_active");
-    popupImg.src = evt.target.src;
-    popupInfo.textContent = evt.target.parentElement.querySelector(".place__info").textContent;
-  });
-  places.append(placeItem);
-}
-
-// Открытие Модального окна добавления новой карточки
-const popupAdd = document.querySelector(".popup-add");
-const openPopupAddBtn = document.querySelector(".profile__add-btn");
-function openPopupAdd() {
-  popupAdd.classList.add("popup-add_active");
-}
-openPopupAddBtn.addEventListener("click", openPopupAdd);
-
-// Закритие модального окна добавление карточек
-const closePopupAddBtn = document.querySelector(".popup-add__close-btn");
-function closePopupAdd() {
-  popupAdd.classList.remove("popup-add_active");
-}
-closePopupAddBtn.addEventListener("click", closePopupAdd);
-
-// Добавление новой карточки
-let popupAddPlaceName = document.querySelector(
-  ".popup-add__input-text_type_place-name"
-);
-let popupAddPlaceLink = document.querySelector(
-  ".popup-add__input-text_type_place-link"
-);
-const addPlaceBtn = document.querySelector(".popup-add__submit-btn");
-
-function newPlaceItemForm(evt) {
-  evt.preventDefault();
-  const placeBlock = document.querySelector("#place");
-  const places = document.querySelector(".places");
-  const newItem = placeBlock.content.querySelector(".place").cloneNode(true);
-  newItem.querySelector(".place__info").textContent = popupAddPlaceName.value;
-  newItem.querySelector(".place__image").src = popupAddPlaceLink.value;
-  newItem.querySelector(".place__like-btn").addEventListener("click", (evt) => {
-    evt.target.classList.toggle("place__like-btn_active");
-  });
-  newItem.querySelector(".place__image").addEventListener("click", (evt) => {
-    evt.preventDefault();
-    const openPopupImg = document.querySelector(".popup-full-pic");
-    openPopupImg.classList.add("popup-full-pic_active");
-    const popupImg = document.querySelector('.popup-full-pic__image');
-    const popupInfo = document.querySelector('.popup-full-pic__title');
-    openPopupImg.classList.add("popup-full-pic_active");
-    popupImg.src = evt.target.src;
-    popupInfo.textContent = evt.target.parentElement.querySelector(".place__info").textContent;
-  });
-  places.prepend(newItem);
-  closePopupAdd();
-  popupAddPlaceName.value = "";
-  popupAddPlaceLink.value = "";
-}
-const popupAddForm = document.querySelector("#popup-add-form");
-popupAddForm.addEventListener("submit", newPlaceItemForm);
-
-// Удаление карточек
-const places = document.querySelector(".places");
-places.addEventListener("click", (evt) => {
-  evt.preventDefault();
-  const deleteBtn = document.querySelector(".place__delete-btn");
-  deleteBtn.addEventListener("click", (evt) => {
-    evt.currentTarget.closest(".place").remove();
-  });
+initialCards.forEach(element => {
+  downloadCard(element);
 });
-
-//Закрытие модального окна просмотра картинок
-const popupFullPic = document.querySelector('.popup-full-pic');
-const closePopupFullPicBtn = document.querySelector(".popup-full-pic__close-btn");
-function closePopupFullPic() {
-  popupFullPic.classList.remove("popup-full-pic_active");
-}
-closePopupFullPicBtn.addEventListener("click", closePopupFullPic);
- */
