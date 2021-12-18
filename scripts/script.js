@@ -1,7 +1,5 @@
 //Общее
-const popupCloseBtn = document.querySelectorAll(".popup__close-btn");
-const likeBtn = document.querySelectorAll(".place__like-btn");
-const allPopups = document.querySelector(".popup");
+const popupCloseBtns = document.querySelectorAll(".popup__close-btn");
 const places = document.querySelector(".places");
 const placeBlock = document.querySelector("#place");
 const deleteBtn = document.querySelectorAll(".place__delete-btn");
@@ -78,7 +76,7 @@ function closePopup(popup) {
   popup.classList.remove("popup_active");
 }
 
-popupCloseBtn.forEach((element) => {
+popupCloseBtns.forEach((element) => {
   element.addEventListener("click", (evt) => {
     closePopup(evt.currentTarget.closest(".popup_active"));
   });
@@ -86,10 +84,10 @@ popupCloseBtn.forEach((element) => {
 
 //Функция редактирования профиля
 function handlerProfileSubmit(evt) {
+  evt.preventDefault();
   popupProfileUserName.textContent = popupProfileName.value;
   popupProfileUserInfo.textContent = popupProfileInfo.value;
-  closePopup();
-  evt.preventDefault();
+  closePopup(evt.currentTarget.closest(".popup_active"));
 }
 popupProfileForm.addEventListener("submit", handlerProfileSubmit);
 
@@ -103,6 +101,7 @@ function enterLike(likeBtn) {
 function openPicture(element) {
   popupPicture.src = element.link;
   popupPictureHeading.textContent = element.name;
+  element.alt = element.name;
   openPopup(popupPictureBtn);
 }
 function createCard(element) {
@@ -145,6 +144,8 @@ function createNewCard(evt) {
   };
   addNewCard(newCard);
   closePopup(popupAddCard);
+  popupAddCardName.value = '';
+  popupAddCardLink.value = '';
 }
 
 initialCards.forEach((element) => {
