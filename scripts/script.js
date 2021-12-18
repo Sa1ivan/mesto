@@ -87,7 +87,7 @@ function handlerProfileSubmit(evt) {
   evt.preventDefault();
   popupProfileUserName.textContent = popupProfileName.value;
   popupProfileUserInfo.textContent = popupProfileInfo.value;
-  closePopup(evt.currentTarget.closest(".popup_active"));
+  closePopup(popupProfile);
 }
 popupProfileForm.addEventListener("submit", handlerProfileSubmit);
 
@@ -101,7 +101,7 @@ function enterLike(likeBtn) {
 function openPicture(element) {
   popupPicture.src = element.link;
   popupPictureHeading.textContent = element.name;
-  element.alt = element.name;
+  popupPicture.alt = element.name;
   openPopup(popupPictureBtn);
 }
 function createCard(element) {
